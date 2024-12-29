@@ -4,16 +4,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Application Meta Information
     |--------------------------------------------------------------------------
-    |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
-    |
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+
+    'description' => 'This is app description, for example.',
+
+    'keywords' => 'shopping, application, ecommerce',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Color Theme
+    |--------------------------------------------------------------------------
+    */
+
+    'color' => 'orange',
 
     /*
     |--------------------------------------------------------------------------
