@@ -1,5 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Web as Web;
 
-Route::get('/', App\Livewire\Web\Home::class)->name('home');
+Route::get('/', Web\Home::class)->name('home');
