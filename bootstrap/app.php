@@ -12,6 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))->withRouting(
     then: function () {
         Route::middleware('guest')->group(base_path('routes/guest.php'));
         Route::middleware('auth')->group(base_path('routes/auth.php'));
+        Route::middleware('auth')->group(base_path('routes/admin.php'));
     }
 )->withMiddleware(function (Middleware $middleware) {
     //

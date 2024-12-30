@@ -10,13 +10,11 @@
 </head>
 
 <body class="font-sans antialiased overflow-y-auto dark">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200">
-        <livewire:web.components.header />
+    <div class="min-h-screen bg-secondary-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+        <livewire:components.web.header />
         <main class="grid gap-4">
             {{ $slot }}
         </main>
-        <livewire:web.components.footer />
+        <livewire:components.web.footer />
     </div>
-</body>
-
-</html>
+</div>

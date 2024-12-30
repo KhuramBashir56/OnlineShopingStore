@@ -1,3 +1,3 @@
-<div class="flex flex-col justify-center items-center">
+<div>
     <x-slot name="title">{{ __('Welcome') }}</x-slot>
 </div>
