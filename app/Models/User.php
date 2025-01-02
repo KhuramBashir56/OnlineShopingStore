@@ -2,31 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
     protected $fillable = ['name', 'email', 'password', 'profile_photo_path'];
 
-    protected $guarded = ['id', 'created_at', 'updated_at', 'email_verified_at'];
+    protected $guarded = ['id', 'login_otp', 'login_otp_token', 'login_otp_expired_at', 'created_at', 'updated_at', 'email_verified_at'];
 
     protected $hidden = ['password', 'remember_token'];
 
-    protected $dateformat = 'Y-m-d H:i:s.u';
+    protected $dateFormat = 'Y-m-d H:i:s.u';
 
     protected $casts = [
-        'id' => 'integer',
-        'name' => 'string',
-        'email' => 'string',
         'email_verified_at' => 'datetime',
-        'password' => 'string',
-        'profile_photo_path' => 'string',
-        'remember_token' => 'string',
+        'login_otp_expired_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

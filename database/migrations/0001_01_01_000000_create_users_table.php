@@ -15,6 +15,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at', 6)->nullable();
             $table->string('password');
             $table->string('profile_photo_path', 255)->nullable();
+            $table->string('login_otp')->nullable();
+            $table->string('login_otp_token')->nullable();
+            $table->timestamp('login_otp_expired_at', 6)->nullable();
             $table->rememberToken();
             $table->timestamps(6);
         });
@@ -33,11 +36,20 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('user_activities', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('subject', 100);
+            $table->unsignedBigInteger('ref_id')->nullable();
+            $table->string('type', 50);
+            $table->string('description', 255)->nullable();
+            $table->string('ip_address', 45);
+            $table->text('user_agent');
+            $table->timestamp('created_at', 6);
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');
